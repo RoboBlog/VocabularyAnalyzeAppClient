@@ -1,31 +1,35 @@
 <template>
   <div>
-    <h1>Login</h1>
+    <h1>Sign Up</h1>
     <br/>
     <input type = "text" v-model="credentials.username" placeholder="Enter your username">
     <br />
     <br />
     <input type = "password" v-model="credentials.password" placeholder="Enter your password">
-    <button v-on:click="login">Login</button>//Or Click enter
+    <br />
+    <br />
+    <input type = "text" v-model="credentials.email" placeholder="Enter your email">
+    <button v-on:click="signUp">SignUp</button>//Or Click enter
     <!--VALIDATE-->
   </div>
 </template>
 
 <script>
   export default {
-    name: 'login',
+    name: 'signup',
     data() {
       return {
         credentials: {
-            username: '',
-            password: ''
+          username: '',
+          password: '',
+          email: ''
         }
       };
     },
     methods: {
-      login: function() {
-          console.log(this.credentials)
-        this.$http.post('http://localhost:8080/login', body).then(response =>{
+      signUp: function() {
+        console.log(this.credentials)
+        this.$http.post('http://localhost:8080/signup', body).then(response =>{
           this.words = response.body;
         }, response =>{
           alert("Oups");

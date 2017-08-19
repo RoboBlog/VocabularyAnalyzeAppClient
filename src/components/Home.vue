@@ -1,24 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>Get Words</h1>
-      <input v-model="url" placeholder="url">
-      <button v-on:click="sendUrl">send</button>
-      <!--VALIDATE-->
+  <div>
+    <router-link to="WordsFromFile"><button>Words From File</button></router-link>
+    <router-link to="WordsFromUrl"><button>Words From Url</button></router-link>
     <br />
-      <table v-if="this.words.length!=0">
-        <thead>
-          <tr>
-            <th><h3>Word</h3></th>
-            <th><h3>Amount</h3></th>
-          </tr>
-        </thead>
-        <tbody class="table" v-for="(key, word) in words">
-        <tr>
-          <td><b>{{word}}</b></td>
-          <td>{{key}}</td>
-        </tr>
-          </tbody>
-      </table>
+    <br/>
+
+    <router-link to="Login"><button>SignIn</button></router-link>
+    or
+    <router-link to="SignUp"><button>SignUp</button></router-link>
   </div>
 </template>
 
