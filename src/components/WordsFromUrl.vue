@@ -33,7 +33,7 @@
     },
     methods: {
       sendUrl: function() {
-        this.$http.post('http://localhost:8080/fetchwebsite?url='+this.url).then(response =>{
+        this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url).then(response =>{
           this.words = response.body;
         }, response =>{
           alert("Oups");

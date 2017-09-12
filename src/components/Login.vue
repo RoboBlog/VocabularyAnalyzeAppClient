@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div v-on:keyup.enter="login">
     <h1>Login</h1>
     <br/>
     <input type = "text" v-model="credentials.username" placeholder="Enter your username">
     <br />
     <br />
     <input type = "password" v-model="credentials.password" placeholder="Enter your password">
-    <button v-on:click="login">Login</button>//Or Click enter
+    <button v-on:click="login">Login</button>
     <!--VALIDATE-->
   </div>
 </template>
@@ -24,9 +24,10 @@
     },
     methods: {
       login: function() {
-          console.log(this.credentials)
-        this.$http.post('http://localhost:8080/login', body).then(response =>{
+        this.$http.post('http://localhost:9000/login', this.credentials).then(response =>{
           this.words = response.body;
+          sessionStorage.setItem("jwtToken", response.headers.get('authorization'));
+          location.href = "/";
         }, response =>{
           alert("Oups");
         });

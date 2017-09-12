@@ -29,7 +29,7 @@
     methods: {
       signUp: function() {
         console.log(this.credentials)
-        this.$http.post('http://localhost:8080/signup', body).then(response =>{
+        this.$http.post('http://localhost:9000/signup', body).then(response =>{
           this.words = response.body;
         }, response =>{
           alert("Oups");
