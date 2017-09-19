@@ -1,0 +1,34 @@
+Dodac opcje dodawania do swoich powtorek (checkbox lub button)
+
+Strona slowka razem z definicja oraz paroma lektroami ktorzy pokazuja jak to wymowic
+
+profil uzytkownika oraz system powtorek.
+
+ranking i zbieranie danych na temat najczesciej odnajdywanych statystyk // w panelu admina
+
+paginacja razem ze scrollowaniem
+
+opcja zapisywania tekstow i slowe z tego tekstu
+
+
+
+// Jezeli mamy takie dane pokroju "umiesz juz tyle i tye slowek" to lepiej je wrzucac do encji czy moze po prostu stworzyc serwis ktory to sprawdza i wywoluje sie przy wywoilaniu kontrollera ktory a dostarczyc te dane?
+
+
+add other format
+
+
+System powtorek trzeba rozwiazac najprosciej jak to mozliwe czyli stworzyc tabele slowek uzytkownika (osobna dla kazdego usera czy jedna i wyszukiwanie po kluczu?)
+w ktorej zapisywac udane nie udane proby (sprawdzic jak maja to w angielski) ... random slowa etc.
+
+
+
+Dodatek do przegladarki
+
+Pytania co do vue i frontendu:
+- Po co jest to name?
+- Dodac widoki errrorow
+- oraz widok tlumaczenia i regulki
+- ECMA  Script 6
+- Multilanguage - jak rozwiazujecie te kwestie w aplikacjach?
+
