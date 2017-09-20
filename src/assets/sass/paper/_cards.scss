@@ -3,7 +3,7 @@
   box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
   background-color: #FFFFFF;
   color: $card-black-color;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   position: relative;
   z-index: 1;
 
@@ -22,10 +22,15 @@
     }
   }
   .content {
-    padding: 15px 15px 10px 15px;
+    padding-left: 10px ;
   }
   .header {
-    padding: 20px 20px 0;
+    //padding: 20/0px 20px 0;
+  }
+  .link{
+    border-radius: $border-radius-extreme;
+
+
   }
   .description {
     font-size: $font-paragraph;
@@ -65,7 +70,8 @@
     margin-right: 5px;
   }
   .footer {
-    padding: 0;
+    //padding-top: 15pc;
+    padding-bottom: 15px;
     line-height: 30px;
 
     .legend {
@@ -78,7 +84,7 @@
     }
   }
   .stats {
-    color: #a9a9a9;
+    //color: #a9a9a9;
     font-weight: 300;
     i {
       margin-right: 2px;
@@ -140,7 +146,7 @@
   }
   .numbers {
     font-size: 2em;
-    text-align: right;
+    //text-align: leg;
     p {
       margin: 0;
     }
@@ -231,8 +237,13 @@
     padding: 5px 15px 10px;
   }
   hr {
-    margin: 5px 15px;
+    //margin: 5px 15px;
   }
+}
+
+.notav{
+  opacity: 0.4;
+  //background-color: #3a283d;
 }
 
 .card-plain {

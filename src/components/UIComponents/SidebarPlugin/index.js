@@ -6,7 +6,12 @@ const SidebarStore = {
     {
       name: 'Tłumacz',
       icon: 'ti-panel',
-      path: '/user/overview'
+      path: '/user/translator'
+    },
+    {
+      name: 'Moje słówka',
+      icon: 'ti-panel',
+      path: '/user/dictionary'
     },
     {
       name: 'Profil',

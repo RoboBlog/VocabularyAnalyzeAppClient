@@ -1,7 +1,7 @@
 <template>
   <div class="card card-user">
     <div class="image">
-      <img src="static/img/background.jpg" alt="...">
+      <!--<img src="static/img/background.jpg" alt="...">-->
     </div>
     <div class="content">
       <div class="author">
@@ -39,11 +39,11 @@
         details: [
           {
             title: '12',
-            subTitle: 'Files'
+            subTitle: 'Ilość słówek'
           },
           {
             title: '2GB',
-            subTitle: 'Used'
+            subTitle: 'Nauczone słówka'
           },
           {
             title: '24,6$',
@@ -68,5 +68,5 @@
 
 </script>
 <style>
-  
+
 </style>

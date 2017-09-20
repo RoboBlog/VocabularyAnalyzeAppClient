@@ -4,9 +4,6 @@
         <user-card>
 
         </user-card>
-        <members-card>
-
-        </members-card>
       </div>
       <div class="col-lg-8 col-md-7">
         <edit-profile-form>
@@ -23,7 +20,6 @@
     components: {
       EditProfileForm,
       UserCard,
-      MembersCard
     }
   }
 

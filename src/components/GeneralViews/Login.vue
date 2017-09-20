@@ -28,7 +28,7 @@
       login: function () {
         this.$http.post('http://localhost:9000/login', this.credentials).then(response =>{
           this.words = response.body;
-          sessionStorage.setItem("jwtToken", response.headers.get('authorization'));
+          localStorage.setItem("jwtToken", response.headers.get('authorization'));
           location.href = "/";
         }, response =>{
           alert("Oups");
