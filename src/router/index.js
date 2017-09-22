@@ -8,6 +8,7 @@ import UserProfile from '@/components/Dashboard/Views/UserProfile'
 import Notifications from '@/components/Dashboard/Views/Notifications'
 import TableList from '@/components/Dashboard/Views/TableList'
 import NotFound from '@/components/GeneralViews/NotFoundPage'
+import Dictionaries from '@/components/Dictionary/Dictionaries'
 import Dictionary from '@/components/Dictionary/Dictionary'
 import Games from '@/components/GeneralViews/Games'
 import Quiz from '@/components/GeneralViews/Quiz'
@@ -59,8 +60,13 @@ const routes = [
         component: Translator
       },
       {
-        path: 'dictionary',
-        name: 'dictionary',
+        path: 'dictionaries',
+        name: 'dictionaries',
+        component: Dictionaries
+      },
+      {
+        path: 'dictionary/:id',
+        name: 'dictionary/:id',
         component: Dictionary
       },
       {

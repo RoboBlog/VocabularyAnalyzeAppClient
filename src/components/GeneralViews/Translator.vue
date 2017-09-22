@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contentT">
 
     <div class="row">
       <div class="col-lg-3 col-sm-6">
@@ -34,7 +34,7 @@
             <h4>Słówka z wideo</h4>
           </div>
           <div class="stats" slot="footer">
-            <i> w budowie</i>
+            <i>FUNKCJA JESZCZE NIEDOSTĘPNA</i>
           </div>
         </stats-card>
       </div>

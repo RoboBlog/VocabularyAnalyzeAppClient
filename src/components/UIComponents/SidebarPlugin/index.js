@@ -9,9 +9,9 @@ const SidebarStore = {
       path: '/user/translator'
     },
     {
-      name: 'Moje słówka',
+      name: 'Moje słowniki',
       icon: 'ti-panel',
-      path: '/user/dictionary'
+      path: '/user/dictionaries'
     },
     {
       name: 'Profil',
