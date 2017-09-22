@@ -227,10 +227,13 @@
 
 .card-map {
   .map {
+    opacity: 0.2;
     height: 500px;
     padding-top: 20px;
 
     > div {
+      opacity: 0.2;
+
       height: 100%;
     }
   }

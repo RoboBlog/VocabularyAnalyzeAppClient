@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="header">
-      <h4 class="title">Edit Profile</h4>
+      <h4 class="title">Edytuj Profil</h4>
     </div>
     <div class="contentprof">
       <form>
@@ -23,7 +23,7 @@
 
             <fg-input type="password"
                       label="Password"
-                      placeholder="passworddoknota"
+                      placeholder="****"
                       v-model="user.password">
             </fg-input>
           </div>
@@ -46,8 +46,8 @@
           </div>
         </div>
       </form>
-      <button type="submit" class="btn btn-info btn-fill btn-wd" @click.prevent="updateProfile">
-        Update Profile
+      <button type="submit" class="btn btn-info btn-fill btn-wd" onclick="alert('FUNKCJA JESZCZE NIEDOSTĘPNA')">
+        Zaktualizuj profil
       </button>
       <br />
 
@@ -63,17 +63,16 @@
       }
     },
     created: function(){
-      this.$http.get('http://localhost:9000/api/user/',{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
-        this.user = response.body;
+        this.$http.get('http://localhost:9000/api/user/', {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
+          this.user = response.body;
 //        console.log(response.body)
-      }, response =>{
-        alert("Oups");
-      });
-    },
+        }, response => {
+//          alert("Oups");
+        });
+      },
     methods: {
     }
   }
-
 </script>
 <style>
 

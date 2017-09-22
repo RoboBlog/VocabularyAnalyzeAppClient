@@ -21,10 +21,33 @@ Vue.use(vClickOutside)
 Vue.use(Notifications)
 Vue.use(SideBar)
 
+
 const router = new VueRouter({
   routes,
   linkActiveClass: 'active'
 })
+
+// router.beforeEach((to, from, next) => {
+//     if (localStorage.getItem("jwtToken") === null) {
+//       window.location.replace('/')
+//       next()
+//
+      // next({path:'/'})
+    // }
+    // else{
+    //   next()
+    // }
+//
+// })
+
+// router.beforeEach(function () {
+//   if (localStorage.getItem("jwtToken") !== null) {
+//     window.location.replace('/')
+//   }
+//   else {
+//     router.
+//   }
+// })
 
 Object.defineProperty(Vue.prototype, '$Chartist', {
   get () {

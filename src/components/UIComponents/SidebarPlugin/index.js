@@ -34,6 +34,11 @@ const SidebarStore = {
       path: '/user/notifications'
     },
     {
+      name: 'Fiszki',
+      icon: 'ti-bell',
+      path: '/user/flashcards'
+    },
+    {
       name: 'table',
       // icon:
       path: '/user/table-list'

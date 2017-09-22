@@ -10,7 +10,8 @@ import TableList from '@/components/Dashboard/Views/TableList'
 import NotFound from '@/components/GeneralViews/NotFoundPage'
 import Dictionary from '@/components/Dictionary/Dictionary'
 import Games from '@/components/GeneralViews/Games'
-import Quiz from '@/components/GeneralViews/Games'
+import Quiz from '@/components/GeneralViews/Quiz'
+import Flashcards from '@/components/GeneralViews/Flashcards'
 const routes = [
   {
     path: '/',
@@ -64,6 +65,7 @@ const routes = [
       },
       {
         path: 'profile',
+        onChange: localStorage.getItem("jwtToken")!==null,
         name: 'profile',
         component: UserProfile
       },
@@ -76,6 +78,11 @@ const routes = [
         path: 'games',
         name: 'games',
         component: Games
+      },
+      {
+        path: 'flashcards',
+        name: 'flashcards',
+        component: Flashcards
       },
       {
         path: 'quiz',

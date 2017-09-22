@@ -49,10 +49,10 @@
         ]
       }
     },
-    created: function(){
+      created: function(){
       this.$http.get('http://localhost:9000/api/user/',{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
         this.user = response.body;
-//        console.log(response.body)
+        console.log(response.body)
       }, response =>{
         alert("Oups");
       });
