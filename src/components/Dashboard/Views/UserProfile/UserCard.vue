@@ -5,24 +5,24 @@
     </div>
     <div class="content">
       <div class="author">
-        <img class="avatar border-white" src="static/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Chet Faker
+        <img class="avatar border-white" src="static/img/faces/face-0.jpg" alt="...">
+        <h4 class="title">{{user.username}}
           <br>
-          <a href="#">
-            <small>@chetfaker</small>
-          </a>
+          <!--<a href="#">-->
+            <!--<small>@chetfaker</small>-->
+          <!--</a>-->
         </h4>
       </div>
-      <p class="description text-center">
-        "I like the way you work it
-        <br> No diggity
-        <br> I wanna bag it up"
-      </p>
+      <!--<p class="description text-center">-->
+        <!--"I like the way you work it-->
+        <!--<br> No diggity-->
+        <!--<br> I wanna bag it up"-->
+      <!--</p>-->
     </div>
     <hr>
     <div class="text-center">
       <div class="row">
-        <div v-for="(info,index) in details" :class="getClasses(index)">
+        <div v-for="(info,index) in details" class="col-md-6">
           <h5>{{info.title}}
             <br>
             <small>{{info.subTitle}}</small>
@@ -36,33 +36,28 @@
   export default {
     data () {
       return {
+        user:{},
         details: [
           {
-            title: '12',
+            title: '12543253',
             subTitle: 'Ilość słówek'
           },
           {
-            title: '2GB',
+            title: '321',
             subTitle: 'Nauczone słówka'
           },
-          {
-            title: '24,6$',
-            subTitle: 'Spent'
-          }
         ]
       }
     },
+    created: function(){
+      this.$http.get('http://localhost:9000/api/user/',{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
+        this.user = response.body;
+//        console.log(response.body)
+      }, response =>{
+        alert("Oups");
+      });
+    },
     methods: {
-      getClasses (index) {
-        var remainder = index % 3
-        if (remainder === 0) {
-          return 'col-md-3 col-md-offset-1'
-        } else if (remainder === 2) {
-          return 'col-md-4'
-        } else {
-          return 'col-md-3'
-        }
-      }
     }
   }
 

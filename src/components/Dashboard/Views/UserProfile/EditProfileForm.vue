@@ -11,7 +11,7 @@
                       label="Username"
                       :disabled="true"
                       placeholder="Paper dashboard"
-                      v-model="user.company">
+                      v-model="user.username">
             </fg-input>
           </div>
           <!--<br />-->
@@ -23,8 +23,8 @@
 
             <fg-input type="password"
                       label="Password"
-                      placeholder="Username"
-                      v-model="user.username">
+                      placeholder="passworddoknota"
+                      v-model="user.password">
             </fg-input>
           </div>
           </div>
@@ -41,7 +41,7 @@
             <fg-input type="text"
                       label="E-mail"
                       placeholder="E-mail"
-                      v-model="user.firstName">
+                      v-model="user.email">
             </fg-input>
           </div>
         </div>
@@ -59,16 +59,18 @@
     data () {
       return {
         user: {
-          company: 'maciek331',
-          username: 'michael23',
-          email: '',
         }
       }
     },
+    created: function(){
+      this.$http.get('http://localhost:9000/api/user/',{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
+        this.user = response.body;
+//        console.log(response.body)
+      }, response =>{
+        alert("Oups");
+      });
+    },
     methods: {
-      updateProfile () {
-        alert('Your data: ' + JSON.stringify(this.user))
-      }
     }
   }
 

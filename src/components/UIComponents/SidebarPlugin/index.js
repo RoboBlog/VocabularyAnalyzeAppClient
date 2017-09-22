@@ -21,27 +21,22 @@ const SidebarStore = {
     {
       name: 'Quiz',
       icon: 'ti-view-list-alt',
-      path: '/user/table-list'
+      path: '/user/quiz'
     },
-    // {
-    //   name: 'Typography',
-    //   icon: 'ti-text',
-    //   path: '/user/typography'
-    // },
-    // {
-    //   name: 'Icons',
-    //   icon: 'ti-pencil-alt2',
-    //   path: '/user/icons'
-    // },
     {
       name: 'Gry',
       icon: 'ti-map',
-      path: '/user/maps'
+      path: '/user/games'
     },
     {
       name: 'Powiadomienia',
       icon: 'ti-bell',
       path: '/user/notifications'
+    },
+    {
+      name: 'table',
+      // icon:
+      path: '/user/table-list'
     }
   ],
   displaySidebar (value) {
