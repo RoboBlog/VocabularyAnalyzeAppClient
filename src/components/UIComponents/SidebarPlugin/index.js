@@ -29,11 +29,6 @@ const SidebarStore = {
       path: '/user/games'
     },
     {
-      name: 'Powiadomienia',
-      icon: 'ti-bell',
-      path: '/user/notifications'
-    },
-    {
       name: 'Fiszki',
       icon: 'ti-bell',
       path: '/user/flashcards'

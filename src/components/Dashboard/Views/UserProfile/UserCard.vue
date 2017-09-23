@@ -22,10 +22,18 @@
     <hr>
     <div class="text-center">
       <div class="row">
-        <div v-for="(info,index) in details" class="col-md-6">
-          <h5>{{info.title}}
+        <div class="col-md-6">
+          <h5>{{user.amountWords}}
             <br>
-            <small>{{info.subTitle}}</small>
+            <small>Ilość słówek</small>
+          </h5>
+        </div>
+
+
+        <div class="col-md-6">
+          <h5>{{user.amountKnownWords}}
+            <br>
+            <small>Ilość nauczonych słówek</small>
           </h5>
         </div>
       </div>
@@ -37,16 +45,6 @@
     data () {
       return {
         user:{},
-        details: [
-          {
-            title: '12543253',
-            subTitle: 'Ilość słówek'
-          },
-          {
-            title: '321',
-            subTitle: 'Nauczone słówka'
-          },
-        ]
       }
     },
       created: function(){

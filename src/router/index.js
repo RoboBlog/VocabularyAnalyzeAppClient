@@ -5,7 +5,6 @@ import FromFile from '@/components/GeneralViews/WordsFromFile'
 import FromUrl from '@/components/GeneralViews/WordsFromUrl'
 import Translator from '@/components/GeneralViews/Translator'
 import UserProfile from '@/components/Dashboard/Views/UserProfile'
-import Notifications from '@/components/Dashboard/Views/Notifications'
 import TableList from '@/components/Dashboard/Views/TableList'
 import NotFound from '@/components/GeneralViews/NotFoundPage'
 import Dictionaries from '@/components/Dictionary/Dictionaries'
@@ -13,6 +12,7 @@ import Dictionary from '@/components/Dictionary/Dictionary'
 import Games from '@/components/GeneralViews/Games'
 import Quiz from '@/components/GeneralViews/Quiz'
 import Flashcards from '@/components/GeneralViews/Flashcards'
+import Flashcard from '@/components/GeneralViews/Flashcard'
 const routes = [
   {
     path: '/',
@@ -76,11 +76,6 @@ const routes = [
         component: UserProfile
       },
       {
-        path: 'notifications',
-        name: 'notifications',
-        component: Notifications
-      },
-      {
         path: 'games',
         name: 'games',
         component: Games
@@ -89,6 +84,11 @@ const routes = [
         path: 'flashcards',
         name: 'flashcards',
         component: Flashcards
+      },
+      {
+        path: 'flashcard/:id',
+        name: 'flashcard/:id',
+        component: Flashcard
       },
       {
         path: 'quiz',

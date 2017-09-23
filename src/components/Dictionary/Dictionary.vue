@@ -1,5 +1,4 @@
 <template>
-
   <table v-if="words.length>0">
     <thead>
     <tr>
@@ -34,6 +33,7 @@
 
     </tbody>
   </table>
+  <div v-else> <center><h1>Brak słówek, dodaj słówka z tłumacza (link)</h1></center></div>
 </template>
 
 
@@ -67,9 +67,7 @@
     },
     created: function () {
       this.$http.get('http://localhost:9000/api/user/dictionary/' + this.$route.params.id + '/all', {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
-        console.log(response)
         this.words = response.body;
-        console.log(this.words[0].word)
       }, response => {
         alert("Oups");
       });
