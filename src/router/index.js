@@ -11,6 +11,7 @@ import Dictionaries from '@/components/Dictionary/Dictionaries'
 import Dictionary from '@/components/Dictionary/Dictionary'
 import Games from '@/components/GeneralViews/Games'
 import Quiz from '@/components/GeneralViews/Quiz'
+import QuizView from '@/components/GeneralViews/QuizView'
 import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
 const routes = [
@@ -95,6 +96,12 @@ const routes = [
         name: 'quiz',
         component: Quiz
       },
+
+    {
+       path: 'quizview/:id',
+       name: 'quizview/:id',
+       component: QuizView
+    },
       {
         path: 'table-list',
         name: 'table-list',
