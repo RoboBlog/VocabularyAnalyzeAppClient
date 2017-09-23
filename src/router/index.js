@@ -14,6 +14,7 @@ import Quiz from '@/components/GeneralViews/Quiz'
 import QuizView from '@/components/GeneralViews/QuizView'
 import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
+import Register from '@/components/GeneralViews/Register'
 const routes = [
   {
     path: '/',
@@ -41,9 +42,9 @@ const routes = [
     component: Login
   },
   {
-    path: '/signup',
-    name: 'signup',
-    component: Login
+    path: '/register',
+    name: 'register',
+    component: Register
   },
 
   //       path: 'dictionary',
