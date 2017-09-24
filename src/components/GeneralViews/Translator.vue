@@ -5,10 +5,12 @@
       <div class="col-lg-3 col-sm-6">
         <stats-card>
           <div slot="content"><h4>Słówka z linku</h4></div>
-          <div class="stats" slot="footer">
-            <input class="link" type="text" placeholder="link">
+          <div class="stats " slot="footer">
+            <input v-model="url"  type="text" placeholder="link" >
             &nbsp;
-            <button class="btn btn-primary">send</button>
+            <br />
+            <button v-on:click="sendUrl" class=" btn btn-primary">wyślij</button>
+            <div class="btt3"></div>
           </div>
         </stats-card>
       </div>
@@ -20,7 +22,8 @@
             <h4>Słówka z pliku</h4>
           </div>
           <div class="stats" slot="footer">
-            <input type="file" />
+            <input type="file" @change="onFileChange" />
+            <button v-on:click="sendFile" class="btn btn-primary">wyślij</button>
 
           </div>
         </stats-card>
@@ -40,11 +43,53 @@
       </div>
     </div>
 
-    <!--Charts-->
+
+    <br />
+    <br />
+    <br />
     <div class="row">
-
-
+      <div class="col-md-12">
+        <div class="card"  v-if="this.words.length!=0">
+    <div>
+      <!--<div class="header">-->
+          <!--<h4 class="title">test</h4>-->
+          <!--<p class="category">subtitle</p>-->
+      <!--</div>-->
+      <div class="cont table-responsive table-full-width">
+        <!--<table class="table table-striped">-->
+        <table class="table">
+          <thead>
+          <th><h3><b> &nbsp;Polski &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Angielski &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Us &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Uk &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Liczba Wystąpień &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Opcje &nbsp;</b></h3></th>
+          </thead>
+          <tbody v-for="word in words">
+          <tr>
+            <td><b>{{word.word.englishWord}}</b></td>
+            <td><b>{{word.word.polishWord}}</b></td>
+            <td><audio controls id="us">
+              <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio></td>
+            <td><audio controls id="uk">
+              <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio></td>
+            <td><b>{{word.amount}}</b></td>
+          <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+        </div>
+      </div>
+    </div>
+
+
 
   </div>
 </template>
@@ -59,21 +104,38 @@
 
     data() {
       return {
+        file2: NaN,
+        uploadFile: NaN,
         url: '',
-        words: [
-        ],
+        words: [],
       };
     },
     methods: {
-      sendUrl: function() {
-        this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url+'&part=1').then(response =>{
-          let data = JSON.stringify(response.body.get(0))
-          console.log(data)
-        }, response =>{
-          alert("Oups");
-        });
+      onFileChange(e) {
+        var files = e.target.files || e.dataTransfer.files;
+        this.uploadFile=files[0]
       },
-    }
+
+        sendUrl: function() {
+          this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url).then(response =>{
+            console.log(response.body)
+            this.words = response.body;
+          }, response =>{
+            alert("Oups");
+          });
+        },
+
+        sendFile: function() {
+          var formData = new FormData();
+          formData.append('file', this.uploadFile)
+          this.$http.post('http://localhost:9000/up/', formData).then(response =>{
+            console.log(response.body)
+            this.words = response.body;
+          }, response =>{
+            alert("Oups");
+          });
+        }
+      },
   }
 </script>
 <style>

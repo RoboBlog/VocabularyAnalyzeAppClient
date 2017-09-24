@@ -14,7 +14,7 @@
         <th><h3>Amount</h3></th>
       </tr>
       </thead>
-      <tbody class="table" v-for="(key, word) in words">
+      <tbody class="table"  v-for="(key, word) in words">
       <tr>
         <td><b>{{word}}</b></td>
         <td>{{key}}</td>

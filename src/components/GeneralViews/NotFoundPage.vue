@@ -1,5 +1,5 @@
 <template>
-  <div class="contact-us full-screen">
+  <div class=" contact-us full-screen">
     <!--<nav class="navbar navbar-ct-default" role="navigation-demo">-->
       <!--<div class="container">-->
         <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
@@ -25,7 +25,7 @@
       <!--</div>-->
       <!-- /.container-->
     <!--</nav>-->
-    <div class="wrapper wrapper-full-page section content">
+    <div class="wrapper wrapper-full-page section content btt2">
       <div class="">
         <div class="container">
           <div class="row">
