@@ -14,18 +14,28 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-Vue.use(VueResource)
-Vue.use(VueRouter)
-Vue.use(GlobalComponents)
-Vue.use(vClickOutside)
-Vue.use(Notifications)
-Vue.use(SideBar)
+Vue.use(VueResource);
+Vue.use(VueRouter);
+Vue.use(GlobalComponents);
+Vue.use(vClickOutside);
+Vue.use(Notifications);
+Vue.use(SideBar);
 
+Vue.http.interceptors.push((request, next)=> {
+  if(localStorage.getItem('jwtToken')){
+    request.headers.set('Authorization', + localStorage.getItem('jwtToken'))
+  }
+  next(response=>{
+    if(response.status===400 || response.status===400 || response.status===400 ){
+      router.push({path: '/login'});
+    }
+  })
+});
 
 const router = new VueRouter({
   routes,
   linkActiveClass: 'active'
-})
+});
 
 // router.beforeEach((to, from, next) => {
 //     if (localStorage.getItem("jwtToken") === null) {
