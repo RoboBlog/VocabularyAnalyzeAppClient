@@ -12,7 +12,7 @@ import 'es6-promise/auto'
 import App from './App'
 
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
@@ -20,6 +20,9 @@ Vue.use(GlobalComponents);
 Vue.use(vClickOutside);
 Vue.use(Notifications);
 Vue.use(SideBar);
+
+
+
 
 Vue.http.interceptors.push((request, next)=> {
   if(localStorage.getItem('jwtToken')){
@@ -37,27 +40,20 @@ const router = new VueRouter({
   linkActiveClass: 'active'
 });
 
-// router.beforeEach((to, from, next) => {
-//     if (localStorage.getItem("jwtToken") === null) {
-//       window.location.replace('/')
-//       next()
-//
-      // next({path:'/'})
-    // }
-    // else{
-    //   next()
-    // }
-//
-// })
 
-// router.beforeEach(function () {
-//   if (localStorage.getItem("jwtToken") !== null) {
-//     window.location.replace('/')
-//   }
-//   else {
-//     router.
-//   }
-// })
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record =>
+      record.meta.requiresAuth)){
+    if(localStorage.getItem("jwtToken")===null){
+      next({
+        path: '/login'
+      })
+    }
+  }
+  next()
+});
+
 
 Object.defineProperty(Vue.prototype, '$Chartist', {
   get () {

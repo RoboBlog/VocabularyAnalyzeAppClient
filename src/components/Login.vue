@@ -51,7 +51,8 @@
     },
     methods: {
       login: function() {
-        this.$http.post('http://localhost:9000/login', this.credentials).then(response =>{
+        var host = "http://192.168.2.100:9000/";
+        this.$http.post(host + 'login', this.credentials).then(response =>{
           this.words = response.body;
           localStorage.setItem("jwtToken", response.headers.get('authorization'));
           location.href = "/#/user/";

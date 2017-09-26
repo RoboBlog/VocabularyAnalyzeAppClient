@@ -55,58 +55,68 @@ const routes = [
     path: '/user',
     component: DashboardLayout,
     redirect: '/user/profile',
+    meta: { requiresAuth: true },
     children: [
       {
         path: 'translator',
         name: 'translator',
+        meta: { requiresAuth: true },
         component: Translator
       },
       {
         path: 'dictionaries',
         name: 'dictionaries',
+        meta: { requiresAuth: true },
         component: Dictionaries
       },
       {
         path: 'dictionary/:id',
         name: 'dictionary/:id',
+        meta: { requiresAuth: true },
         component: Dictionary
       },
       {
         path: 'profile',
-        onChange: localStorage.getItem("jwtToken")!==null,
         name: 'profile',
+        meta: { requiresAuth: true },
         component: UserProfile
       },
       {
         path: 'games',
         name: 'games',
+        meta: { requiresAuth: true },
         component: Games
       },
       {
         path: 'flashcards',
         name: 'flashcards',
+        meta: { requiresAuth: false },
         component: Flashcards
       },
       {
         path: 'flashcard/:id',
         name: 'flashcard/:id',
+        meta: { requiresAuth: true },
         component: Flashcard
       },
       {
         path: 'quiz',
         name: 'quiz',
-        component: Quiz
+        component: Quiz,
+        meta: { requiresAuth: true },
       },
 
     {
        path: 'quizview/:id',
        name: 'quizview/:id',
-       component: QuizView
+       component: QuizView,
+      meta: { requiresAuth: true },
     },
       {
         path: 'table-list',
         name: 'table-list',
-        component: TableList
+        component: TableList,
+        meta: { requiresAuth: true },
       }
     ]
   },
