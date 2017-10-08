@@ -244,6 +244,28 @@
   }
 }
 
+.card-map-blue {
+  background-color: #3C8DB6;
+  .map {
+    opacity: 0.2;
+    height: 500px;
+    padding-top: 20px;
+
+    > div {
+      opacity: 0.2;
+
+      height: 100%;
+    }
+  }
+}
+
+.card-flashcard {
+  //.map {
+  //  opacity: 0.2;
+  height: 200px;
+  padding-top: 20px;
+}
+
 .card-user,
 .card-price {
   .footer {

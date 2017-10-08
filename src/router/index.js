@@ -5,7 +5,6 @@ import FromFile from '@/components/GeneralViews/WordsFromFile'
 import FromUrl from '@/components/GeneralViews/WordsFromUrl'
 import Translator from '@/components/GeneralViews/Translator'
 import UserProfile from '@/components/Dashboard/Views/UserProfile'
-import TableList from '@/components/Dashboard/Views/TableList'
 import NotFound from '@/components/GeneralViews/NotFoundPage'
 import Dictionaries from '@/components/Dictionary/Dictionaries'
 import Dictionary from '@/components/Dictionary/Dictionary'
@@ -15,6 +14,7 @@ import QuizView from '@/components/GeneralViews/QuizView'
 import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
 import Register from '@/components/GeneralViews/Register'
+
 const routes = [
   {
     path: '/',
@@ -112,15 +112,15 @@ const routes = [
        component: QuizView,
       meta: { requiresAuth: true },
     },
-      {
-        path: 'table-list',
-        name: 'table-list',
-        component: TableList,
-        meta: { requiresAuth: true },
-      }
+      // {
+      //   path: 'table-list',
+      //   name: 'table-list',
+      //   component: TableList,
+      //   meta: { requiresAuth: true },
+      // }
     ]
   },
   { path: '*', component: NotFound }
-]
+];
 
 export default routes

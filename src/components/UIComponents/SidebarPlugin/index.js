@@ -33,11 +33,11 @@ const SidebarStore = {
       icon: 'ti-bell',
       path: '/user/flashcards'
     },
-    {
-      name: 'table',
-      // icon:
-      path: '/user/table-list'
-    }
+    // {
+    //   name: 'table',
+    //   // icon:
+    //   path: '/user/table-list'
+    // }
   ],
   displaySidebar (value) {
     this.showSidebar = value
