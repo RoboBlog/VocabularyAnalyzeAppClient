@@ -47,6 +47,9 @@
     <br />
     <br />
     <br />
+
+
+
     <div class="row">
       <div class="col-md-12">
         <div class="card"  v-if="this.words.length!=0">
@@ -57,6 +60,7 @@
       <!--</div>-->
       <div class="cont table-responsive table-full-width">
         <!--<table class="table table-striped">-->
+
         <table class="table">
           <thead>
           <th><h3><b> &nbsp;Polski &nbsp;</b></h3></th>
@@ -79,20 +83,25 @@
               Your browser does not support the audio element.
             </audio></td>
             <td><b>{{word.amount}}</b></td>
-          <td></td>
+          <td>
+            <drop-down title="Dodaj do słownika">
+              <li v-for="dictionary in dictionaries"><a v-on:click=addToDictionary(dictionary.id,word.word.id)>{{dictionary.name}}</a></li>
+            </drop-down>
+
+          </td>
           </tr>
           </tbody>
         </table>
       </div>
+
     </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
+
 </template>
+
 <script>
   import StatsCard from '@/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from '@/components/UIComponents/Cards/ChartCard.vue'
@@ -108,6 +117,8 @@
         uploadFile: NaN,
         url: '',
         words: [],
+        dictionaries: [],
+//        test: 'test'
       };
     },
     methods: {
@@ -116,9 +127,16 @@
         this.uploadFile=files[0]
       },
 
+      addToDictionary: function (dictionaryId, wordId) {
+        this.$http.post('http://localhost:9000/api/user/dictionary/' + dictionaryId + '/' + wordId).then(response =>{
+        }, response =>{
+          alert("Oups");
+        });
+      },
+
         sendUrl: function() {
           this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url).then(response =>{
-            console.log(response.body)
+            console.log(response.body);
             this.words = response.body;
           }, response =>{
             alert("Oups");
@@ -136,6 +154,13 @@
           });
         }
       },
+    created: function(){
+      this.$http.get('http://localhost:9000/api/user/dictionary/all').then(response =>{
+        this.dictionaries = response.body;
+      }, response =>{
+        alert("Oups");
+      });
+    }
   }
 </script>
 <style>

@@ -7,7 +7,7 @@
         <stats-card>
           <div slot="content"><router-link :to="{path:'/user/dictionary/'+dictionary.id}"><h4>{{dictionary.name}}</h4></router-link></div>
           <div class="stats" slot="footer">
-
+            <button v-on:click="deleteWord(dictionary.id)">usuń</button>
           </div>
         </stats-card>
       </div>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+  //TODO VALIDATION
   import StatsCard from '@/components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from '@/components/UIComponents/Cards/ChartCard.vue'
   export default {
@@ -44,27 +45,28 @@
       };
     },
     methods:{
-      send:function(dictionaryName) {
+      send: function(dictionaryName) {
         let options = { emulateJSON: true };
-        this.$http.post('http://localhost:9000/api/user/dictionary/?dictionaryName='+dictionaryName ,options, {headers: {Authorization: localStorage.getItem("jwtToken") }}).then(response => {
-          console.log(response)
-        })
+        this.$http.post('http://localhost:9000/api/user/dictionary/?dictionaryName='+dictionaryName ,options).then(response => {
+          location.reload();
+        });
+
       },
-//      deleteWord:function (id) {
-//        this.$http.delete('http://localhost:9000/api/user/dictionary/delete/word/'+id,{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
-//        })
-//        location.reload();
-        //delete from var || refresh
-//    },
+
+      deleteWord:function (id) {
+        this.$http.delete('http://localhost:9000/api/user/dictionary/?dictionaryId='+id).then(response =>{
+          location.reload();
+        })
+//        delete from var || refresh
+    },
   },
     created: function(){
-        this.$http.get('http://localhost:9000/api/user/dictionary/all',{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
+        this.$http.get('http://localhost:9000/api/user/dictionary/all').then(response =>{
           this.dictionaries = response.body;
-          console.log(this.dictionaries)
       }, response =>{
         alert("Oups");
       });
-      }
+    }
 
   }
 

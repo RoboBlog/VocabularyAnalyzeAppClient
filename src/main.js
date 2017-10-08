@@ -11,7 +11,6 @@ import './assets/sass/paper-dashboard.scss'
 import 'es6-promise/auto'
 import App from './App'
 
-
 Vue.config.productionTip = false;
 
 Vue.use(VueResource);
@@ -21,15 +20,14 @@ Vue.use(vClickOutside);
 Vue.use(Notifications);
 Vue.use(SideBar);
 
-
-
-
 Vue.http.interceptors.push((request, next)=> {
-  if(localStorage.getItem('jwtToken')){
-    request.headers.set('Authorization', + localStorage.getItem('jwtToken'))
+  if(1===1){
+    console.log(localStorage.getItem('jwtToken'));
+    request.headers.set('Authorization', localStorage.getItem('jwtToken'));
+    console.log(request);
   }
   next(response=>{
-    if(response.status===400 || response.status===400 || response.status===400 ){
+    if(response.status===400 || response.status===401 || response.status===402 ){
       router.push({path: '/login'});
     }
   })
