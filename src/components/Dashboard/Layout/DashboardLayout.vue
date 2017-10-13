@@ -7,6 +7,12 @@
         <nav class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
+              <button type="button"
+                      class="logout-but btn"
+                      @click="logout">
+                Wyloguj
+              </button>
+
               <button type="button" class="navbar-toggle" :class="{toggled: $sidebar.showSidebar}"
                       @click="toggleSidebar">
                 <span class="sr-only">Toggle navigation</span>
@@ -50,6 +56,10 @@
 
 
     methods: {
+      logout: function () {
+        localStorage.removeItem("jwtToken");
+        location.href = "/#/";
+      },
       toggleSidebar () {
         if (this.$sidebar.showSidebar) {
           this.$sidebar.displaySidebar(false)

@@ -91,6 +91,11 @@ hr {
   height: 100vh;
 }
 
+.logout-but {
+  position: absolute;
+  bottom: -1px;
+  right: 56px;
+}
 @media (min-width: 992px) {
   .typo-line {
     padding-left: 140px;
