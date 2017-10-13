@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
             <div class="card-select ">
-              <div v-on:keyup.enter="login" class = 'btt'>
+              <div v-on:keyup.enter="signUp" class='btt'>
                 <br />
                 <h1 class="title text-danger">Zarejestruj się</h1>
                 <br />
@@ -56,8 +56,8 @@
     methods: {
       signUp: function() {
         console.log(this.credentials)
-        this.$http.post(window.url + 'signup', body).then(response => {
-          this.words = response.body;
+        this.$http.post(window.url + '/signup', this.credentials).then(response => {
+          location.href = "/#/login"
         }, response =>{
           alert("Oups");
         });
