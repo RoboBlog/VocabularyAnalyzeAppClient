@@ -142,7 +142,12 @@
         sendUrl: function() {
           this.$http.post(window.url + '/fetchwebsite?url=' + this.url).then(response => {
             console.log(response.body);
-            this.words = response.body;
+            if (response.body.length !== 0) {
+              this.words = response.body;
+            }
+            else {
+              alert("Brak słówek")
+            }
           }, response =>{
             alert("Oups");
           });
@@ -152,8 +157,12 @@
           var formData = new FormData();
           formData.append('file', this.uploadFile)
           this.$http.post(window.url + '/up/', formData).then(response => {
-            console.log(response.body)
-            this.words = response.body;
+            if (response.body.length !== 0) {
+              this.words = response.body;
+            }
+            else {
+              alert("Brak słówek")
+            }
           }, response =>{
             alert("Oups");
           });

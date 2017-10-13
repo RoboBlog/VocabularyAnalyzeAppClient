@@ -52,9 +52,9 @@
     },
     methods: {
       login: function() {
-        this.$http.post(window.url + '/login', this.credentials).then(response => {
-          this.words = response.body;
-          localStorage.setItem("jwtToken", response.headers.get('authorization'));
+        this.$http.post(window.url + '/auth', this.credentials).then(response => {
+//          this.words = response.body;
+          localStorage.setItem("jwtToken", 'Bearer ' + response.body['token']);
           location.href = "/#/user/";
         }, response =>{
           alert("Oups");

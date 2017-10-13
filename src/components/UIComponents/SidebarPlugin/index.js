@@ -33,6 +33,11 @@ const SidebarStore = {
       icon: 'ti-check-box',
       path: '/user/flashcards'
     },
+    {
+      name: 'Informacje',
+      icon: 'ti-comments',
+      path: '/user/info'
+    }
     // {
     //   name: 'table',
     //   // icon:

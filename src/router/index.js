@@ -14,8 +14,10 @@ import QuizView from '@/components/GeneralViews/QuizView'
 import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
 import Register from '@/components/GeneralViews/Register'
+import Info from '@/components/GeneralViews/Info'
 
-const require = false;
+
+const require = true;
 const routes = [
   {
     path: '/',
@@ -113,6 +115,12 @@ const routes = [
        component: QuizView,
       meta: {requiresAuth: require},
     },
+      {
+        path: 'info',
+        name: 'info',
+        component: Info,
+        meta: {requiresAuth: require},
+      }
       // {
       //   path: 'table-list',
       //   name: 'table-list',

@@ -31,13 +31,13 @@ window.url = "http://localhost:9000"
 
 //TODO FIX IT
 Vue.http.interceptors.push((request, next)=> {
-  if(1===1){
-    console.log(localStorage.getItem('jwtToken'));
+
+  // console.log(localStorage.getItem('jwtToken'));
     request.headers.set('Authorization', localStorage.getItem('jwtToken'));
-    console.log(request);
-  }
+  // console.log(request);
+
   next(response=>{
-    if(response.status===400 || response.status===401 || response.status===402 ){
+    if (response.status === 401 || response.status === 402) {
       router.push({path: '/login'});
     }
   })
