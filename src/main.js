@@ -3,19 +3,24 @@ import VueRouter from 'vue-router'
 import vClickOutside from 'v-click-outside'
 import VueResource from 'vue-resource'
 import GlobalComponents from './globalComponents'
+import GlobalDirectives from './globalDirectives'
 import Notifications from './components/UIComponents/NotificationPlugin'
 import SideBar from './components/UIComponents/SidebarPlugin'
 import routes from './router/index.js'
+import Chartist from 'chartist'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/sass/paper-dashboard.scss'
 import 'es6-promise/auto'
 import App from './App'
+
 
 Vue.config.productionTip = false;
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(GlobalComponents);
+Vue.use(GlobalDirectives);
 Vue.use(vClickOutside);
 Vue.use(Notifications);
 Vue.use(SideBar);
@@ -60,10 +65,19 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
 })
 
 
+// new Vue({
+//   el: '#app',
+//   router,
+//   template: '<App/>',
+//   components: { App }
+// })
+//
 
 new Vue({
   el: '#app',
+  render: h => h(App),
   router,
-  template: '<App/>',
-  components: { App }
+  data: {
+    Chartist: Chartist
+  }
 })

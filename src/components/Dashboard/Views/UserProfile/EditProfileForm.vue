@@ -6,7 +6,7 @@
     <div class="contentprof">
       <form>
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-5 col-xs-10 ">
             <fg-input type="text"
                       label="Username"
                       :disabled="true"
@@ -19,7 +19,7 @@
 
         <div class="row">
 
-          <div class="col-md-5">
+          <div class="col-md-5 col-xs-10">
 
             <fg-input type="password"
                       label="Password"
@@ -37,7 +37,7 @@
           <!--</div>-->
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 col-xs-10">
             <fg-input type="text"
                       label="E-mail"
                       placeholder="E-mail"

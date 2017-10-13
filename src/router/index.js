@@ -15,6 +15,7 @@ import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
 import Register from '@/components/GeneralViews/Register'
 
+const require = false;
 const routes = [
   {
     path: '/',
@@ -55,62 +56,62 @@ const routes = [
     path: '/user',
     component: DashboardLayout,
     redirect: '/user/profile',
-    meta: { requiresAuth: true },
+    meta: {requiresAuth: require},
     children: [
       {
         path: 'translator',
         name: 'translator',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: Translator
       },
       {
         path: 'dictionaries',
         name: 'dictionaries',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: Dictionaries
       },
       {
         path: 'dictionary/:id',
         name: 'dictionary/:id',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: Dictionary
       },
       {
         path: 'profile',
         name: 'profile',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: UserProfile
       },
       {
         path: 'games',
         name: 'games',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: Games
       },
       {
         path: 'flashcards',
         name: 'flashcards',
-        meta: { requiresAuth: false },
+        meta: {requiresAuth: require},
         component: Flashcards
       },
       {
         path: 'flashcard/:id',
         name: 'flashcard/:id',
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
         component: Flashcard
       },
       {
         path: 'quiz',
         name: 'quiz',
         component: Quiz,
-        meta: { requiresAuth: true },
+        meta: {requiresAuth: require},
       },
 
     {
        path: 'quizview/:id',
        name: 'quizview/:id',
        component: QuizView,
-      meta: { requiresAuth: true },
+      meta: {requiresAuth: require},
     },
       // {
       //   path: 'table-list',

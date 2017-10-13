@@ -1,11 +1,11 @@
 <template>
+  <!--<div class="row">-->
     <div class="contentT row">
-      <div class="col-lg-4 col-md-5">
+      <div class="col-lg-5 col-md-5">
         <user-card>
-
         </user-card>
       </div>
-      <div class="col-lg-8 col-md-7">
+      <div class="col-lg-7 col-md-7">
         <edit-profile-form>
         </edit-profile-form>
       </div>
