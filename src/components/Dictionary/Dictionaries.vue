@@ -47,21 +47,21 @@
     methods:{
       send: function(dictionaryName) {
         let options = { emulateJSON: true };
-        this.$http.post('http://localhost:9000/api/user/dictionary/?dictionaryName='+dictionaryName ,options).then(response => {
+        this.$http.post(window.url + 'api/user/dictionary/?dictionaryName=' + dictionaryName, options).then(response => {
           location.reload();
         });
 
       },
 
       deleteWord:function (id) {
-        this.$http.delete('http://localhost:9000/api/user/dictionary/?dictionaryId='+id).then(response =>{
+        this.$http.delete(window.url + 'api/user/dictionary/?dictionaryId=' + id).then(response => {
           location.reload();
         })
 //        delete from var || refresh
     },
   },
     created: function(){
-        this.$http.get('http://localhost:9000/api/user/dictionary/all').then(response =>{
+      this.$http.get(window.url + 'api/user/dictionary/all').then(response => {
           this.dictionaries = response.body;
       }, response =>{
         alert("Oups");

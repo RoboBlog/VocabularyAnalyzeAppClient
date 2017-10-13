@@ -35,7 +35,7 @@
     },
     methods: {
       sendUrl: function() {
-        this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url+'&part=1').then(response =>{
+        this.$http.post(window.url + 'fetchwebsite?url=' + this.url + '&part=1').then(response => {
           this.words = response.body;
         }, response =>{
           alert("Oups");

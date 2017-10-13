@@ -9,7 +9,12 @@
             <input v-model="url"  type="text" placeholder="link" >
             &nbsp;
             <br />
-            <button v-on:click="sendUrl" class=" btn btn-primary">wyślij</button>
+            <button
+              type="submit"
+              class="btn btn-info btn-fill btn-wd"
+              v-on:click="sendUrl">
+              wyślij
+            </button>
             <div class="btt3"></div>
           </div>
         </stats-card>
@@ -23,7 +28,7 @@
           </div>
           <div class="stats" slot="footer">
             <input type="file" @change="onFileChange" />
-            <button v-on:click="sendFile" class="btn btn-primary">wyślij</button>
+            <button type="submit" class="btn btn-info btn-fill btn-wd" v-on:click="sendFile">wyślij</button>
 
           </div>
         </stats-card>
@@ -128,14 +133,14 @@
       },
 
       addToDictionary: function (dictionaryId, wordId) {
-        this.$http.post('http://localhost:9000/api/user/dictionary/' + dictionaryId + '/' + wordId).then(response =>{
+        this.$http.post(window.url + '/api/user/dictionary/' + dictionaryId + '/' + wordId).then(response => {
         }, response =>{
           alert("Oups");
         });
       },
 
         sendUrl: function() {
-          this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url).then(response =>{
+          this.$http.post(window.url + '/fetchwebsite?url=' + this.url).then(response => {
             console.log(response.body);
             this.words = response.body;
           }, response =>{
@@ -146,7 +151,7 @@
         sendFile: function() {
           var formData = new FormData();
           formData.append('file', this.uploadFile)
-          this.$http.post('http://localhost:9000/up/', formData).then(response =>{
+          this.$http.post(window.url + '/up/', formData).then(response => {
             console.log(response.body)
             this.words = response.body;
           }, response =>{
@@ -155,7 +160,7 @@
         }
       },
     created: function(){
-      this.$http.get('http://localhost:9000/api/user/dictionary/all').then(response =>{
+      this.$http.get(window.url + '/api/user/dictionary/all').then(response => {
         this.dictionaries = response.body;
       }, response =>{
         alert("Oups");

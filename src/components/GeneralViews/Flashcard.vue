@@ -95,7 +95,7 @@
       },
 
       nextWord: function () {
-        this.$http.get('http://localhost:9000/api/user/flashcard/' + this.$route.params.id).then(response => {
+        this.$http.get(window.url + '/api/user/flashcard/' + this.$route.params.id).then(response => {
           this.word = response.body;
         }, response => {
           alert("Oups");
@@ -118,7 +118,7 @@
 //    },
   },
     created: function () {
-      this.$http.get('http://localhost:9000/api/user/flashcard/' + this.$route.params.id).then(response => {
+      this.$http.get(window.url + '/api/user/flashcard/' + this.$route.params.id).then(response => {
         this.word = response.body;
       }, response => {
         alert("Oups");

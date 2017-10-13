@@ -25,6 +25,11 @@ Vue.use(vClickOutside);
 Vue.use(Notifications);
 Vue.use(SideBar);
 
+
+window.url = "http://localhost:9000"
+
+
+//TODO FIX IT
 Vue.http.interceptors.push((request, next)=> {
   if(1===1){
     console.log(localStorage.getItem('jwtToken'));

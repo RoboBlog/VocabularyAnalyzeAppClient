@@ -36,7 +36,7 @@
 //    },
     },
     created: function () {
-      this.$http.get('http://localhost:9000/api/user/quiz/' + this.$route.params.id, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
+      this.$http.get(window.url + 'api/user/quiz/' + this.$route.params.id, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
         this.word = response.body;
       }, response => {
         alert("Oups");

@@ -5,12 +5,12 @@ const SidebarStore = {
   sidebarLinks: [
     {
       name: 'Tłumacz',
-      icon: 'ti-panel',
+      icon: 'ti-text',
       path: '/user/translator'
     },
     {
       name: 'Moje słowniki',
-      icon: 'ti-panel',
+      icon: 'ti-layout-grid3',
       path: '/user/dictionaries'
     },
     {
@@ -25,12 +25,12 @@ const SidebarStore = {
     },
     {
       name: 'Gry',
-      icon: 'ti-map',
+      icon: 'ti-game',
       path: '/user/games'
     },
     {
       name: 'Fiszki',
-      icon: 'ti-bell',
+      icon: 'ti-check-box',
       path: '/user/flashcards'
     },
     // {

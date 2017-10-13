@@ -19,7 +19,7 @@
         </nav>
       </div>
 
-      <dashboard-content @click.native="toggleSidebar">
+      <dashboard-content>
       </dashboard-content>
 
       <content-footer></content-footer>

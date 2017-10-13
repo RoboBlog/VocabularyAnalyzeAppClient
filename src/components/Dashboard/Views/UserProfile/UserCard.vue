@@ -48,7 +48,7 @@
       }
     },
       created: function(){
-      this.$http.get('http://localhost:9000/api/user/').then(response =>{
+        this.$http.get(window.url + '/api/user/').then(response => {
         this.user = response.body;
         console.log(response.body)
       }, response =>{

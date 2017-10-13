@@ -54,19 +54,19 @@
     methods: {
       send: function () {
         let options = {emulateJSON: true};
-        this.$http.post('http://localhost:9000/api/user/dictionary/' + this.$route.params.id + '/16', options, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
+        this.$http.post(window.url + '/api/user/dictionary/' + this.$route.params.id + '/16', options, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
           console.log(response)
         })},
 //      },
       deleteWord:function (id) {
-        this.$http.delete('http://localhost:9000/api/user/dictionary/'+ this.$route.params.id + "/" +id,{headers: { Authorization: localStorage.getItem("jwtToken") }}).then(response =>{
+        this.$http.delete(window.url + '/api/user/dictionary/' + this.$route.params.id + "/" + id, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
         })
         location.reload();
 //        delete from var || refresh
     },
     },
     created: function () {
-      this.$http.get('http://localhost:9000/api/user/dictionary/' + this.$route.params.id + '/all', {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
+      this.$http.get(window.url + '/api/user/dictionary/' + this.$route.params.id + '/all', {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
         this.words = response.body;
       }, response => {
         alert("Oups");

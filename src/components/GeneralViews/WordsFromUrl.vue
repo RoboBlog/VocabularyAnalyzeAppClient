@@ -70,7 +70,7 @@
     },
     methods: {
 sendUrl: function() {
-        this.$http.post('http://localhost:9000/fetchwebsite?url='+this.url).then(response =>{
+  this.$http.post(window.url + 'fetchwebsite?url=' + this.url).then(response => {
           console.log(response.body)
           this.words = response.body;
         }, response =>{

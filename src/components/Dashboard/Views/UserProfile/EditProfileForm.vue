@@ -46,7 +46,10 @@
           </div>
         </div>
       </form>
-      <button type="submit" class="btn btn-info btn-fill btn-wd" onclick="alert('FUNKCJA JESZCZE NIEDOSTĘPNA')">
+      <button
+        type="submit"
+        class="btn btn-info btn-fill btn-wd"
+        onclick="alert('FUNKCJA JESZCZE NIEDOSTĘPNA')">
         Zaktualizuj profil
       </button>
       <br />
@@ -63,7 +66,7 @@
       }
     },
     created: function(){
-        this.$http.get('http://localhost:9000/api/user/').then(response => {
+      this.$http.get(window.url + '/api/user/').then(response => {
           this.user = response.body;
 //        console.log(response.body)
         }, response => {
