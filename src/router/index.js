@@ -15,6 +15,8 @@ import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
 import Register from '@/components/GeneralViews/Register'
 import Info from '@/components/GeneralViews/Info'
+import QuizWriting from '@/components/GeneralViews/QuizWritingMode'
+import QuizSelect from '@/components/GeneralViews/QuizSelectMode'
 
 
 const require = true;
@@ -116,17 +118,25 @@ const routes = [
       meta: {requiresAuth: require},
     },
       {
+        path: 'quiz/select/:type/:id',
+        name: 'quiz/select/:type/:id',
+        component: QuizSelect,
+        meta: {requiresAuth: require},
+      },
+
+      {
+        path: 'quiz/writing/:type/:id',
+        name: 'quiz/writing/:type/:id',
+        component: QuizWriting,
+        meta: {requiresAuth: require},
+      },
+
+      {
         path: 'info',
         name: 'info',
         component: Info,
         meta: {requiresAuth: require},
       }
-      // {
-      //   path: 'table-list',
-      //   name: 'table-list',
-      //   component: TableList,
-      //   meta: { requiresAuth: true },
-      // }
     ]
   },
   { path: '*', component: NotFound }

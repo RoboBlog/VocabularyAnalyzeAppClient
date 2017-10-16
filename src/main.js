@@ -51,6 +51,11 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
+  // if(to.meta!=='profile'){
+  //   if(localStorage.getItem("jwtToken")!==null){
+  //     next({path: '/#/user'})
+  //   }
+  // }
   if(to.matched.some(record =>
       record.meta.requiresAuth)){
     if(localStorage.getItem("jwtToken")===null){
@@ -58,7 +63,15 @@ router.beforeEach((to, from, next) => {
         path: '/login'
       })
     }
+
+
   }
+  else {
+    if (to.name !== 'user') {
+      next({path: '/user'})
+    }
+  }
+
   next()
 });
 
@@ -67,16 +80,7 @@ Object.defineProperty(Vue.prototype, '$Chartist', {
   get () {
     return this.$root.Chartist
   }
-})
-
-
-// new Vue({
-//   el: '#app',
-//   router,
-//   template: '<App/>',
-//   components: { App }
-// })
-//
+});
 
 new Vue({
   el: '#app',
@@ -85,4 +89,4 @@ new Vue({
   data: {
     Chartist: Chartist
   }
-})
+});
