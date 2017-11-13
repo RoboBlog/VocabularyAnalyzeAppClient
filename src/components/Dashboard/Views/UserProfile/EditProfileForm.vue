@@ -23,6 +23,7 @@
 
             <fg-input type="password"
                       label="Password"
+                      :disabled="true"
                       placeholder="****"
                       v-model="user.password">
             </fg-input>
@@ -49,7 +50,7 @@
       <button
         type="submit"
         class="btn btn-info btn-fill btn-wd"
-        onclick="alert('FUNKCJA JESZCZE NIEDOSTĘPNA')">
+        @click="updateProfile">
         Zaktualizuj profil
       </button>
       <br />
@@ -68,12 +69,17 @@
     created: function(){
       this.$http.get(window.url + '/api/user/').then(response => {
           this.user = response.body;
-//        console.log(response.body)
+        console.log(response.body)
         }, response => {
-//          alert("Oups");
         });
       },
     methods: {
+      updateProfile: function () {
+        this.$http.put(window.url + '/api/user/edit/user', this.user).then(response => {
+          location.reload();
+        }, response => {
+        });
+      }
     }
   }
 </script>

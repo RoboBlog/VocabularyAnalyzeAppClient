@@ -27,7 +27,7 @@
             <h4>Słówka z pliku</h4>
           </div>
           <div class="stats" slot="footer">
-            <input type="file" @change="onFileChange" />
+            <input class="choose" type="file" @change="onFileChange"/>
             <button type="submit" class="btn btn-info btn-fill btn-wd" v-on:click="sendFile">wyślij</button>
 
           </div>
@@ -68,22 +68,24 @@
 
         <table class="table">
           <thead>
-          <th><h3><b> &nbsp;Polski &nbsp;</b></h3></th>
-          <th><h3><b> &nbsp;Angielski &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Ang &nbsp;&nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;Pol &nbsp;</b></h3></th>
           <th><h3><b> &nbsp;Us &nbsp;</b></h3></th>
           <th><h3><b> &nbsp;Uk &nbsp;</b></h3></th>
-          <th><h3><b> &nbsp;Liczba Wystąpień &nbsp;</b></h3></th>
+          <th><h3><b> &nbsp;L. Wystąpień &nbsp;</b></h3></th>
           <th><h3><b> &nbsp;Opcje &nbsp;</b></h3></th>
           </thead>
           <tbody v-for="word in words">
           <tr>
             <td><b>{{word.word.englishWord}}</b></td>
             <td><b>{{word.word.polishWord}}</b></td>
-            <td><audio controls id="us">
-              <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
+            <td>
+              <audio controls id="us" class="audio" controlsList="nodownload">
+                <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio></td>
-            <td><audio controls id="uk">
+            <td>
+              <audio controls id="uk" class="audio" controlsList="nodownload">
               <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio></td>

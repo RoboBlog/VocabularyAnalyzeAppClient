@@ -9,13 +9,6 @@
           </div>
         </stats-card>
       </div>
-<!--<div class="contentT">-->
-  <!--<div class="card card-map">-->
-    <!--<div class="header">-->
-      <!--<center><h1 class="map" >FUNKCJA JESZCZE NIEDOSTĘPNA</h1></center>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
   </div>
   </div>
 </template>
@@ -41,13 +34,4 @@
         alert("Oups");
       });
     }}
-//    created: function () {
-//      this.$http.get('http://localhost:9000/api/user/flashcard/'+this.$route.params.id, {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
-//        this.word = response.body;
-//        console.log(this.dictionaries)
-//      }, response => {
-//        alert("Oups");
-//      });
-//    }
-//  }
 </script>

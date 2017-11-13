@@ -3,20 +3,26 @@
 
 
     <div class="contentT row">
-      <div class="padCont col-lg-3 col-sm-6" v-for="dictionary in dictionaries">
-        <stats-card>
-          <div slot="content"><router-link :to="{path:'/user/dictionary/'+dictionary.id}"><h4>{{dictionary.name}}</h4></router-link></div>
-          <div class="stats" slot="footer">
-            <button v-on:click="deleteWord(dictionary.id)">usuń</button>
-          </div>
-        </stats-card>
+      <div v-if="dictionaries.length>0">
+        <div v-for="dictionary in dictionaries" class="padCont col-lg-3 col-sm-6">
+          <stats-card>
+            <div slot="content">
+              <router-link :to="{path:'/user/dictionary/'+dictionary.id}"><h4>{{dictionary.name}}</h4></router-link>
+            </div>
+            <div class="stats" slot="footer">
+              <button class="btn btn-info btn-fill btn-wd" v-on:click="deleteDictionary(dictionary.id)">usuń</button>
+            </div>
+          </stats-card>
+        </div>
       </div>
 
         <div class="padCont col-lg-3 col-sm-6" >
           <stats-card>
-            <div slot="content"><h5><input type="text" v-model="dictionaryName" placeholder="nazwa słownika"></h5></div>
+            <div class="padDict" slot="content"><h5><input type="text" v-model="dictionaryName"
+                                                           placeholder="nazwa słownika"></h5></div>
+
             <div class="stats" slot="footer">
-              <button v-on:click="send(dictionaryName)">Dodaj słownik</button>
+              <button class="btn btn-info btn-fill btn-wd" v-on:click="send(dictionaryName)">Dodaj słownik</button>
             </div>
           </stats-card>
         </div>
@@ -40,8 +46,7 @@
     data() {
       return {
         dictionaryName: '',
-        dictionaries: [
-        ],
+        dictionaries: [],
       };
     },
     methods:{
@@ -53,7 +58,7 @@
 
       },
 
-      deleteWord:function (id) {
+      deleteDictionary: function (id) {
         this.$http.delete(window.url + '/api/user/dictionary/?dictionaryId=' + id).then(response => {
           location.reload();
         })

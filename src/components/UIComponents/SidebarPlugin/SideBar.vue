@@ -7,7 +7,7 @@
     <!-- -->
     <div class="sidebar-wrapper" id="style-3">
       <div class="logo">
-        <a href="#" class="simple-text">
+        <a href="#/user" class="simple-text">
             <div class="logo-img">
                 <img src="static/img/vue-logo.png" alt="">
             </div>
@@ -18,8 +18,7 @@
 
       </slot>
       <ul :class="navClasses">
-        <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
-        <router-link v-for="(link,index) in sidebarLinks" :to="link.path" tag="li" :ref="link.name">
+        <router-link v-for="(link, index) in sidebarLinks" :to="link.path" tag="li" :ref="link.name">
           <a>
             <i :class="link.icon"></i>
 

@@ -22,18 +22,23 @@
     <hr>
     <div class="text-center">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h5>{{user.amountWords}}
             <br>
             <small>Ilość słówek</small>
           </h5>
         </div>
-
-
-        <div class="col-md-6">
-          <h5>{{user.amountKnownWords}}
+        <div class="col-md-4">
+          <h5>{{user.score}}
             <br>
-            <small>Ilość nauczonych słówek</small>
+            <small>Ilośc punktów</small>
+          </h5>
+        </div>
+
+        <div class="col-md-4">
+          <h5>{{user.dayScore}}
+            <br>
+            <small>Ilośc punktów dzisiaj</small>
           </h5>
         </div>
       </div>

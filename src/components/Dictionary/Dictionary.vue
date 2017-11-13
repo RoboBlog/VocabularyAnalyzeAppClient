@@ -1,39 +1,49 @@
 <template>
-  <table v-if="words.length>0">
-    <thead>
-    <tr>
-      <th><h3><b>Ang</b></h3></th>
-      <th><h3><b>Pl</b></h3></th>
-      <th><h3><b>Uk</b></h3></th>
-      <th><h3><b>Us</b></h3></th>
-      <th><h3><b>Opcje</b></h3></th>
-    </tr>
-    </thead>
-    <tbody class="table" v-for="word in words">
-    <tr>
-      <td><b>{{word.word.englishWord}}&nbsp;&nbsp;</b></td>
-      <td>{{word.word.polishWord}}&nbsp;&nbsp;</td>
-      <td>
-        <audio controls id="uk">
-          <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
-          Your browser does not support the audio element.
 
-        </audio>
-        &nbsp;
-      </td>
-      <td>
-        <audio controls id="us">
-          <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        &nbsp;
-      </td>
-      <td><center><button v-on:click="deleteWord(word.id)">usuń</button></center></td>
-    </tr>
+  <div class="row">
+    <br/>
+    <div class="col-md-12">
+      <div class="card" v-if="this.words.length!=0">
+        <div>
+          <div class="cont table-responsive table-full-width">
+            <table class="table">
+              <thead>
+              <th><h3><b> &nbsp;Ang &nbsp;&nbsp;</b></h3></th>
+              <th><h3><b> &nbsp;Pol &nbsp;</b></h3></th>
+              <th><h3><b> &nbsp;Us &nbsp;</b></h3></th>
+              <th><h3><b> &nbsp;Uk &nbsp;</b></h3></th>
+              <th><h3><b> &nbsp;Opcje &nbsp;</b></h3></th>
+              </thead>
+              <tbody v-for="word in words">
+              <tr>
+                <td><b>{{word.word.englishWord}}</b></td>
+                <td><b>{{word.word.polishWord}}</b></td>
+                <td>
+                  <audio controls id="us" class="audio" controlsList="nodownload">
+                    <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </td>
+                <td>
+                  <audio controls id="uk" class="audio" controlsList="nodownload">
+                    <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </td>
+                <td>
+                  <button class="btn btn-info btn-fill" v-on:click="deleteWord(word.id)">usuń</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--</table>-->
+        </div>
+      </div>
+    </div>
+  </div>
 
-    </tbody>
-  </table>
-  <div v-else> <center><h1>Brak słówek, dodaj słówka z tłumacza (link)</h1></center></div>
+  <!--<div v-else> <center><h1>Brak słówek, dodaj słówka z tłumacza (link)</h1></center></div>-->
 </template>
 
 
@@ -63,7 +73,7 @@
         })
         location.reload();
 //        delete from var || refresh
-    },
+      },
     },
     created: function () {
       this.$http.get(window.url + '/api/user/dictionary/' + this.$route.params.id + '/all', {headers: {Authorization: localStorage.getItem("jwtToken")}}).then(response => {
@@ -72,6 +82,6 @@
         alert("Oups");
       });
     }
-    }
+  }
 
 </script>
