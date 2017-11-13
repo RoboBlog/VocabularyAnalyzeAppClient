@@ -29,14 +29,9 @@ Vue.use(SideBar);
 window.url = "http://localhost:9000"
 
 
-//TODO FIX IT
 Vue.http.interceptors.push((request, next)=> {
-
-  // console.log(localStorage.getItem('jwtToken'));
     request.headers.set('Authorization', localStorage.getItem('jwtToken'));
-  // console.log(request);
-
-  next(response=>{
+  next(response => {
     if (response.status === 401 || response.status === 402) {
       router.push({path: '/login'});
     }
@@ -49,29 +44,22 @@ const router = new VueRouter({
 });
 
 
-
+//
 router.beforeEach((to, from, next) => {
-  // if(to.meta!=='profile'){
-  //   if(localStorage.getItem("jwtToken")!==null){
-  //     next({path: '/#/user'})
-  //   }
-  // }
-  if(to.matched.some(record =>
-      record.meta.requiresAuth)){
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+
     if(localStorage.getItem("jwtToken")===null){
       next({
         path: '/login'
       })
     }
-
-
-  }
-  else {
-    if (to.name !== 'user') {
-      next({path: '/user'})
+    else {
+      next()
     }
   }
-  next()
+  else {
+    next()
+  }
 });
 
 
