@@ -4,7 +4,17 @@
     <div class="contentT row">
       <div class="padCont col-lg-3 col-sm-6" v-for="dictionary in dictionaries">
         <stats-card>
-          <div slot="content" @click="createNewQuiz(dictionary.id)"><a><h4>{{dictionary.name}}</h4></a></div>
+
+
+          <div slot="content" @click="createNewQuiz(dictionary.id)" v-bind:style="{cursor: 'pointer'}">
+            <a>
+              <h4>
+                {{dictionary.name}}
+              </h4>
+            </a>
+          </div>
+
+
           <div class="stats" slot="footer">
 
           </div>

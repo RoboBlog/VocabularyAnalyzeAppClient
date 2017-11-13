@@ -4,7 +4,12 @@
     <div class="contentT row">
       <div class="padCont col-lg-3 col-sm-6" v-for="dictionary in dictionaries">
         <stats-card>
-          <div slot="content"><router-link :to="{path:'/user/flashcard/'+dictionary.id}"><h4>{{dictionary.name}}</h4></router-link></div>
+          <div slot="content">
+            <router-link :to="{path:'/user/flashcard/'+dictionary.id}">
+              <h4>{{dictionary.name}}
+              </h4>
+            </router-link>
+          </div>
           <div class="stats" slot="footer">
           </div>
         </stats-card>

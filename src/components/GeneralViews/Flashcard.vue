@@ -31,7 +31,7 @@
 
     <div>
       <div class="contentFlashcard-btn">
-        <div class="card card-map" v-on:click="switchLanguage()">
+        <div class="card card-map" v-on:click="switchLanguage()" v-bind:style="{cursor: 'pointer'}">
           <div class="header">
           </div>
             <center>
@@ -48,7 +48,7 @@
         <div class="card card-map-blue">
           <div class="header">
           </div>
-          <div v-on:click="nextWord()">
+          <div v-on:click="nextWord()" v-bind:style="{cursor: 'pointer'}">
             <center>
               <!--<b>-->
               Następne słówko
