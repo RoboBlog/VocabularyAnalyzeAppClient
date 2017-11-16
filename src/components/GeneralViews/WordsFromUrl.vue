@@ -1,7 +1,24 @@
 <template>
-  <div class="wrapper">
-    <div class="main-panel-no-sidebar">
 
+  <div class="wrapper">
+
+    <div class="main-panel2">
+      <div class="headnav">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <router-link :to="{path : '/selectsource' } ">
+                <button type="button"
+                        class="home-btn btn">
+                  Strona główna
+                </button>
+              </router-link>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
       <div class="contentT">
 
         <div class="row">

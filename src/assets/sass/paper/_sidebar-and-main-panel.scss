@@ -190,6 +190,34 @@
     margin-bottom: 0;
   }
 }
+
+.main-panel2 {
+  background-color: $bg-nude;
+  //position: relative;
+  //z-index: 2;
+  //float: right;
+  //width: $sidebar-width;
+  min-height: 100%;
+
+  //> .content {
+  //  padding: 30px 15px;
+  //  min-height: calc(100% - 123px);
+  //}
+  //> .contentx {
+  padding-left: 15px;
+  padding-right: 15px;
+  //min-height: calc(100% - 123px);
+  //}
+  //
+  //> .footer {
+  //  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  //}
+  //
+  //.navbar {
+  //  margin-bottom: 0;
+  //}
+}
+
 .main-panel {
   background-color: $bg-nude;
   position: relative;
