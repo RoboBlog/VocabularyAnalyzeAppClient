@@ -3,21 +3,18 @@
     <div class="contentFlashcard">
       <div class="card card-flashcard">
         <div class="content">
-
           <center>
             <h1>
               Język
             </h1>
             <br/>
-
             <router-link :to="{path : '/user/quiz/writing/ep/' + this.$route.params.id}">
               <button class="btn btn-info btn-fill">Eng ->   Pl</button>
             </router-link>
-
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <router-link :to="{path : '/user/quiz/writing/ep/' + this.$route.params.id}">
-              <button class="btn btn-info btn-fill">Eng ->   Pl</button>
+              <button class="btn btn-info btn-fill">Pl ->   Eng</button>
             </router-link>
-
           </center>
         </div>
         <br/>

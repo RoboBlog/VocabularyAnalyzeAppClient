@@ -1,6 +1,23 @@
 <template>
   <div class="wrapper">
-    <div class="main-panel-no-sidebar">
+
+    <div class="main-panel2">
+      <div class="headnav">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <router-link :to="{path : '/selectsource' } ">
+                <button type="button"
+                        class="home-btn btn">
+                  Strona główna
+                </button>
+              </router-link>
+            </div>
+          </div>
+        </nav>
+      </div>
+
       <div class="contentT">
 
         <div class="row">
@@ -89,24 +106,24 @@
       };
     },
     methods: {
-      onFileChange(e) {
-        var files = e.target.files || e.dataTransfer.files;
-        this.uploadFile = files[0]
-      },
-      sendFile: function () {
-        var formData = new FormData();
-        formData.append('file', this.uploadFile)
-        this.$http.post(window.url + '/up/', formData).then(response => {
-          if (response.body.length !== 0) {
-            this.words = response.body;
-          }
-          else {
-            alert("Brak słówek")
-          }
-        }, response =>{
-          alert("Oups");
-        });
-      }
+//      onFileChange(e) {
+//        var files = e.target.files || e.dataTransfer.files;
+//        this.uploadFile = files[0]
+//      },
+//      sendFile: function () {
+//        var formData = new FormData();
+//        formData.append('file', this.uploadFile)
+//        this.$http.post(window.url + '/up/', formData).then(response => {
+//          if (response.body.length !== 0) {
+//            this.words = response.body;
+//          }
+//          else {
+//            alert("Brak słówek")
+//          }
+//        }, response =>{
+//          alert("Oups");
+//        });
+//      }
     },
 //    created: function(){
 //      this.$http.get(window.url + '/api/user/dictionary/all').then(response => {
@@ -120,53 +137,3 @@
 <style>
 
 </style>
-
-
-<!--<template>-->
-<!--<div>-->
-<!--<h1>Get Words</h1>-->
-<!--<input type="file">//send file-->
-<!--<br />-->
-<!--<br />-->
-<!--<button v-on:click="sendUrl">send</button>-->
-<!--&lt;!&ndash;VALIDATE&ndash;&gt;-->
-<!--<br />-->
-<!--<table v-if="this.words.length!=0">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th><h3>Word</h3></th>-->
-<!--<th><h3>Amount</h3></th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody class="table" v-for="(key, word) in words">-->
-<!--<tr>-->
-<!--<td><b>{{word}}</b></td>-->
-<!--<td>{{key}}</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-<!--</div>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--export default {-->
-<!--name: 'wordsfromfile',-->
-<!--data() {-->
-<!--return {-->
-<!--file:'',-->
-<!--words: Map,-->
-<!--};-->
-<!--},-->
-<!--methods: {-->
-<!--sendUrl: function() {-->
-<!--this.$http.post(window.url + 'fetchwebsite?url=' + this.url + '&part=1').then(response => {-->
-<!--this.words = response.body;-->
-<!--}, response =>{-->
-<!--alert("Oups");-->
-<!--});-->
-<!--},-->
-<!--}-->
-<!--}-->
-
-<!--</script>-->
-

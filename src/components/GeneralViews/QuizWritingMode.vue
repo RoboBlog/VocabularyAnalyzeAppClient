@@ -1,11 +1,42 @@
 <template>
   <div class="row">
-    <div v-if="$route.params.type=='ep'">{{word.englishWord}}</div>
-    <div v-else="$route.params.type=='pe'">{{word.polishWord}}</div>
+    <div class="contentFlashcard">
+      <div class="card card-flashcard">
+        <div class="content">
 
-    <input type="text" v-model="answer">
-    <button @click="sendAnswer">sub</button>
+          <center>
 
+            <div v-if="$route.params.type=='ep'">
+              <h3>
+                Ang:
+                <b>
+                  {{word.englishWord}}
+                </b>
+              </h3>
+            </div>
+
+            <div v-else="$route.params.type=='pe'">
+              <h3>
+                Pol:
+                <b>
+                  {{word.polishWord}}
+                </b>
+              </h3>
+            </div>
+            <br/>
+
+            <input type="text" v-model="answer">
+            <br/>
+            <br/>
+            <button class="btn btn-info btn-fill" @click="sendAnswer">
+              Sprawdź odpowiedź
+            </button>
+              
+          </center>
+        </div>
+        <br/>
+      </div>
+    </div>
   </div>
 
 </template>
