@@ -31,8 +31,15 @@
     methods: {
       sendAnswer: function () {
         let options = {emulateJSON: true};
-        this.$http.post(window.url + '/api/quiz/' + this.$route.params.id + '?answer=' + this.answer + '&type=' + this.$route.params.type, options).then(response => {
-          console.log(response)
+        this.$http.post(window.url + '/api/quiz/' + this.id + '?answer=' + this.answer + '&type=' + this.$route.params.type, options).then(response => {
+
+          if (response.bodyText === "is Incorrect") {
+            alert("Oups. Jednak nie. Poprawna odpowiedz to: ")
+          }
+          else {
+            alert("Brawo")
+          }
+
         })
       },
     },

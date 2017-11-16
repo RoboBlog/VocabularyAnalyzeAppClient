@@ -1,57 +1,29 @@
 <template>
   <div class="row">
+    <div class="contentFlashcard">
+      <div class="card card-flashcard">
+        <div class="content">
 
-    <div>
-      <br/>
-      <div class="padCont col-lg-3 col-sm-6">
-        <stats-card>
-          <div slot="content"><h3><b>Tryb pisania</b></h3></div>
+          <center>
+            <h1>
+              Język
+            </h1>
+            <br/>
 
-          <div class="stats" slot="footer">
-            <router-link :to="{path : '/user/quiz/writing/pe/' + this.$route.params.id}">
-              <button class="btn btn-info btn-fill">Pl ->   Eng</button>
+            <router-link :to="{path : '/user/quiz/writing/ep/' + this.$route.params.id}">
+              <button class="btn btn-info btn-fill">Eng ->   Pl</button>
             </router-link>
 
             <router-link :to="{path : '/user/quiz/writing/ep/' + this.$route.params.id}">
               <button class="btn btn-info btn-fill">Eng ->   Pl</button>
             </router-link>
 
-          </div>
-        </stats-card>
+          </center>
+        </div>
+        <br/>
       </div>
-      <div class="padCont col-lg-3 col-sm-6">
-        <stats-card>
-          <div slot="content"><h3><b>Dopasowania</b></h3></div>
-
-          <div class="stats" slot="footer">
-            <router-link :to="{path : '/user/quiz/select/pe/' + this.$route.params.id}">
-              <button class="btn btn-info btn-fill">Pl ->   Eng</button>
-            </router-link>
-
-            <router-link :to="{path : '/user/quiz/select/ep/' + this.$route.params.id}">
-              <button class="btn btn-info btn-fill">Eng ->   Pl</button>
-            </router-link>
-          </div>
-
-        </stats-card>
-      </div>
-
-
-      <div class="padCont col-lg-3 col-sm-6 notav">
-        <stats-card>
-          <div slot="content"><h3><b>Test</b></h3></div>
-          <div class="stats" slot="footer">
-            <i>FUNKCJA JESZCZE NIEDOSTĘPNA</i>
-          </div>
-        </stats-card>
-      </div>
-
-
     </div>
-
-
   </div>
-
 </template>
 
 
@@ -61,12 +33,13 @@
 
   export default {
     name: 'quizView',
-    components:{
+    components: {
       StatsCard,
       ChartCard
     },
     data() {
       return {
+//        word: null,
 //        word: null,
 //        id: null
       };

@@ -13,6 +13,8 @@ import Quiz from '@/components/GeneralViews/Quiz'
 import QuizView from '@/components/GeneralViews/QuizView'
 import Flashcards from '@/components/GeneralViews/Flashcards'
 import Flashcard from '@/components/GeneralViews/Flashcard'
+import FlashcardLanguage from '@/components/GeneralViews/FlashcardLanguage'
+
 import Register from '@/components/GeneralViews/Register'
 import Info from '@/components/GeneralViews/Info'
 import QuizWriting from '@/components/GeneralViews/QuizWritingMode'
@@ -97,6 +99,12 @@ const routes = [
         name: 'flashcards',
         meta: {requiresAuth: require},
         component: Flashcards
+      },
+      {
+        path: 'flashcardlanguage',
+        name: 'flashcardlanguage',
+        meta: {requiresAuth: require},
+        component: FlashcardLanguage
       },
       {
         path: 'flashcard/:id',

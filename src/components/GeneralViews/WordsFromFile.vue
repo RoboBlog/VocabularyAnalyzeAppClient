@@ -1,70 +1,73 @@
 <template>
-  <div class="contentT">
+  <div class="wrapper">
+    <div class="main-panel-no-sidebar">
+      <div class="contentT">
 
-    <div class="row">
-      <div class="col-lg-3 col-sm-6">
-        <stats-card>
-          <div class="text-center" slot="content">
-            <h4>Słówka z pliku</h4>
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <stats-card>
+              <div class="text-center" slot="content">
+                <h4>Słówka z pliku</h4>
+              </div>
+              <div class="stats" slot="footer">
+                <input class="choose" type="file" @change="onFileChange"/>
+                <button type="submit" class="btn btn-info btn-fill btn-wd" v-on:click="sendFile">wyślij</button>
+
+              </div>
+            </stats-card>
           </div>
-          <div class="stats" slot="footer">
-            <input class="choose" type="file" @change="onFileChange"/>
-            <button type="submit" class="btn btn-info btn-fill btn-wd" v-on:click="sendFile">wyślij</button>
-
-          </div>
-        </stats-card>
-      </div>
-    </div>
+        </div>
 
 
-    <br />
-    <br />
-    <br/>
+        <br/>
+        <br/>
+        <br/>
 
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card" v-if="this.words.length!=0">
-          <div>
-            <div class="cont table-responsive table-full-width">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" v-if="this.words.length!=0">
+              <div>
+                <div class="cont table-responsive table-full-width">
 
-              <table class="table">
-                <thead>
-                <th><h3><b> &nbsp;Ang &nbsp;&nbsp;</b></h3></th>
-                <th><h3><b> &nbsp;Pol &nbsp;</b></h3></th>
-                <th><h3><b> &nbsp;Us &nbsp;</b></h3></th>
-                <th><h3><b> &nbsp;Uk &nbsp;</b></h3></th>
-                <th><h3><b> &nbsp;L. Wystąpień &nbsp;</b></h3></th>
-                </thead>
-                <tbody v-for="word in words">
-                <tr>
-                  <td><b>{{word.word.englishWord}}</b></td>
-                  <td><b>{{word.word.polishWord}}</b></td>
-                  <td>
-                    <audio controls id="us" class="audio" controlsList="nodownload">
-                      <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td>
-                    <audio controls id="uk" class="audio" controlsList="nodownload">
-                      <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-                  </td>
-                  <td><b>{{word.amount}}</b></td>
+                  <table class="table">
+                    <thead>
+                    <th><h3><b> &nbsp;Ang &nbsp;&nbsp;</b></h3></th>
+                    <th><h3><b> &nbsp;Pol &nbsp;</b></h3></th>
+                    <th><h3><b> &nbsp;Us &nbsp;</b></h3></th>
+                    <th><h3><b> &nbsp;Uk &nbsp;</b></h3></th>
+                    <th><h3><b> &nbsp;L. Wystąpień &nbsp;</b></h3></th>
+                    </thead>
+                    <tbody v-for="word in words">
+                    <tr>
+                      <td><b>{{word.word.englishWord}}</b></td>
+                      <td><b>{{word.word.polishWord}}</b></td>
+                      <td>
+                        <audio controls id="us" class="audio" controlsList="nodownload">
+                          <source v-bind:src="word.word.urlAudioUs" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </td>
+                      <td>
+                        <audio controls id="uk" class="audio" controlsList="nodownload">
+                          <source v-bind:src="word.word.urlAudioUk" type="audio/mpeg">
+                          Your browser does not support the audio element.
+                        </audio>
+                      </td>
+                      <td><b>{{word.amount}}</b></td>
 
-                </tr>
-                </tbody>
-              </table>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
